@@ -6,6 +6,14 @@ public class Customer {
 	private String phoneNo;
 	private String customerAdress;
 
+	public Customer(int customerId, String customerName, String phoneNo, String customerAdress) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.phoneNo = phoneNo;
+		this.customerAdress = customerAdress;
+	}
+
 	public int getCustomerid() {
 		return customerId;
 	}

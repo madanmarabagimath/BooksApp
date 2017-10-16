@@ -4,29 +4,33 @@ public class Book {
 	private String bookName;
 	private String authoerName;
 	private double price;
+	Book bookStore;
 
-	public String getBookname() {
-		return bookName;
+	public Book(String bookName, String authoerName, double price) {
+		this.bookName = bookName;
+		this.authoerName = authoerName;
+		this.price = price;
 	}
 
-	public void setBookname(String bookname) {
-		this.bookName = bookname;
+	public Book() {
+
+	}
+
+	public String getBookname() {
+		return this.bookName;
 	}
 
 	public String getAuthoername() {
-		return authoerName;
-	}
-
-	public void setAuthoername(String authoername) {
-		this.authoerName = authoername;
+		return this.authoerName;
 	}
 
 	public double getPrice() {
-		return price;
+		return this.price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	@Override
+	public String toString() {
+		return "Book [bookName=" + bookName + ", authoerName=" + authoerName + ", price=" + price + "]";
 	}
 
 }

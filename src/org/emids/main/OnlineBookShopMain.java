@@ -1,23 +1,23 @@
 package org.emids.main;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import org.emids.domain.Book;
+import org.emids.service.MainView;
 
 public class OnlineBookShopMain {
-	public static void option() {
+	public static ArrayList<Book> bookcontainer = new ArrayList<Book>();
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("\nMenu - Managing a List");
-		System.out.println("1 view BOOKS");
-		System.out.println("2 search books");
-		System.out.println("3 VIEW PHYTHON BOOKS");
-		System.out.println("4 VIEW BIGDATA BOOKS");
-		System.out.println("5 VIEW ANGULAR JS BOOKS");
-		System.out.println("6 VIEW REACT JS  BOOKS");
-		System.out.println("7 TO ADD BOOK TO SHELF");
-		System.out.println("8 TO ADD BOOK TO CART");
-		System.out.println("9 TO PLACE A ORDER");
-		System.out.println("10 TO EXIT");
-		System.out.println("Select a menu option");
+	public static void main(String[] args) {
 
+		Book book1 = new Book("java", "James Goslings", 800);
+		Book book2 = new Book("SCJP", "hugart", 500);
+		Book book3 = new Book("Bigdata", "Morque", 350);
+		Book book4 = new Book("Phython", "REgrno", 200);
+		bookcontainer.add(book1);
+		bookcontainer.add(book2);
+		bookcontainer.add(book3);
+		bookcontainer.add(book4);
+		System.out.println(bookcontainer.size());
+		MainView.option();
 	}
 }

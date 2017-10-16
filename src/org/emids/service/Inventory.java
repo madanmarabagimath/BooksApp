@@ -2,37 +2,68 @@ package org.emids.service;
 
 import java.util.Scanner;
 import org.emids.domain.Book;
-import org.emids.domain.Customer;;
+import org.emids.main.OnlineBookShopMain;;
 
 public class Inventory {
 	Scanner scanner = new Scanner(System.in);
 	String option = null;
+	Product product = new Product();
 
-	public String searchByBookName(String bookName) {
+	public void searchByBookName() {
 		System.out.println("enter the book name you want");
-		String option = scanner.nextLine();
-		if (option.equalsIgnoreCase(bookName)) {
-			System.out.println(
-					"book found you want to add it to the cart or add to it order by selecting option provded in menu");
-			return option;
-		} else
-			System.out.println("oops book not found");
-		return null;
-	}
+		String searchBookName = scanner.next();
+		boolean isBookFound = false;
 
-	public String searchByBookAuthoerName(String authoerName) {
-		System.out.println("enter the authoerName you want");
-		String option = scanner.nextLine();
-		if (option.equalsIgnoreCase(authoerName)) {
-			System.out.println(
-					"book found you want to add it to the cart or add to it order by selecting option provded in menu");
-			return option;
+		for (int i = 0; i < OnlineBookShopMain.bookcontainer.size(); i++) {
 
-		} else {
-			System.out.println("oops book not found");
+			Book bokkNameSearched = OnlineBookShopMain.bookcontainer.get(i);
+			if (searchBookName.equalsIgnoreCase(bokkNameSearched.getBookname())) {
+				isBookFound = true;
+				System.out.println(bokkNameSearched);
+				System.out.println("press 1 for add to cart");
+				int value = scanner.nextInt();
+				if (value == 1) {
+					ShoppingCart.addShopingCart(bokkNameSearched);
+					System.out.println(bokkNameSearched + "is added to cart");
+					break;
+				}
+
+			}
+
 		}
-		return null;
+		if (isBookFound == false) {
+			System.out.println("Book not found");
+
+		}
 
 	}
 
+	public void searchByBookAuthoerName() {
+		System.out.println("enter the book Authoername you want");
+		String searchBookAuthoerName = scanner.next();
+		boolean isBookFound = false;
+
+		for (int i = 0; i < OnlineBookShopMain.bookcontainer.size(); i++) {
+
+			Book bookAuthoerNameSearched = OnlineBookShopMain.bookcontainer.get(i);
+			if (searchBookAuthoerName.equalsIgnoreCase(bookAuthoerNameSearched.getBookname())) {
+				isBookFound = true;
+				System.out.println(bookAuthoerNameSearched);
+				System.out.println("press 1 for add to cart");
+				int value = scanner.nextInt();
+				if (value == 1) {
+					ShoppingCart.addShopingCart(bookAuthoerNameSearched);
+					System.out.println(bookAuthoerNameSearched + "is added to cart");
+					break;
+				}
+
+			}
+
+		}
+		if (isBookFound == false) {
+			System.out.println("Book not found");
+
+		}
+
+	}
 }
