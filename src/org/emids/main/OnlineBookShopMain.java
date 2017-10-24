@@ -17,7 +17,6 @@ public class OnlineBookShopMain {
 		bookcontainer.add(book2);
 		bookcontainer.add(book3);
 		bookcontainer.add(book4);
-		System.out.println(bookcontainer.size());
 		MainView.option();
 	}
 }
